@@ -1,5 +1,5 @@
 from flask.helpers import flash
-from debug_project_app import app, Message, mail
+from debug_project_app import app, Message, mail, db
 from flask import render_template, request, redirect, url_for
 
 # Import for Forms
