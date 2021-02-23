@@ -45,15 +45,15 @@ def register():
 @app.route('/posts', methods=['GET','POST'])
 @login_required
 def posts():
-    post = PostForm
+    post = PostForm()
     if request.method == 'POST' and post.validate():
         title = post.title.data
         content = post.content.data
-        user_id = current_user
+        user_id = current_user.id
         print('\n',title,content)
         post = Post(title,content,user_id)
 
-        db.session.add(post,posts)
+        db.session.add(post)
 
         db.session.commit()
         return redirect(url_for('posts'))
